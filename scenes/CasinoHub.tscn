@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/CasinoHub.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/HudBar.tscn" id="2"]
+
+[node name="CasinoHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.03, 0.07, 1)
+
+[node name="Stripe" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 104.0
+color = Color(0.4, 0.05, 0.08, 1)
+
+[node name="HudBar" parent="." instance=ExtResource("2")]
+layout_mode = 1
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 120.0
+offset_right = -40.0
+offset_bottom = -24.0
+theme_override_constants/separation = 18
+
+[node name="Header" type="Label" parent="Main"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.55, 0.55, 1)
+theme_override_font_sizes/font_size = 28
+text = "賭場大廳　——　直接選檯"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+text = "選一張檯"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Games" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 24
+
+[node name="RouletteBtn" type="Button" parent="Main/Games"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "歐洲輪盤
+European Roulette
+莊家優勢 ≈ 2.70%"
+
+[node name="BaccaratBtn" type="Button" parent="Main/Games"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "百家樂
+Player / Banker
+莊 ≈1.06%　閒 ≈1.24%"
+
+[node name="SlotsBtn" type="Button" parent="Main/Games"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "老虎機
+3 軸單線
+目標 RTP ≈ 96%"
+
+[node name="Actions" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="StopBtn" type="Button" parent="Main/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 48)
+layout_mode = 2
+disabled = true
+text = "真勝利停手（需 ≥ $2,000,000,000）"
+
+[node name="QuitBtn" type="Button" parent="Main/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+text = "放棄／逃出"

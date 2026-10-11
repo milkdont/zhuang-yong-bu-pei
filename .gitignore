@@ -1,0 +1,18 @@
+# Godot 4
+.godot/
+*.translation
+
+# Exported binaries (use GitHub Releases for large builds)
+export/*.x86_64
+export/*.exe
+export/windows/
+export/linux/
+export/mac/
+*.pck
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.import/
